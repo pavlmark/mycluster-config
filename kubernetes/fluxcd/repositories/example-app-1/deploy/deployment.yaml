@@ -22,9 +22,9 @@ spec:
     spec:
       containers:
       - name: example-app-1
-        image: nginx
+        image: pavlmark/example-app-1:0.0.1
         ports:
-        - containerPort: 80
+        - containerPort: 5000
         volumeMounts:
         - name: config-volume
           mountPath: /configs/
