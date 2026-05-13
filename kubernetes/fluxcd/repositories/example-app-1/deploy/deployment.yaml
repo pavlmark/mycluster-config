@@ -24,7 +24,7 @@ spec:
       - name: example-app-1
         image: nginx
         ports:
-        - containerPort: 5000
+        - containerPort: 80
         volumeMounts:
         - name: config-volume
           mountPath: /configs/
