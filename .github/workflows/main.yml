@@ -17,7 +17,7 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: |
-        cd /home/pavl/mycluster-config/kubernetes/repositories/example-app-1/src
+        cd /home/pavl/mycluster-config/kubernetes/fluxcd/repositories/example-app-1/src
         docker build . -t pavlmark/example-app-1:0.0.5
         docker push pavlmark/example-app-1:0.0.5
   ci_for_kubernetes:
