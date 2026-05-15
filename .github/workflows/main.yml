@@ -17,7 +17,6 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: |
-        docker tag example-app-1 pavlmark/example-app-1:0.0.5
         docker build . -t pavlmark/example-app-1:0.0.5
         docker push pavlmark/example-app-1:0.0.5
   ci_for_kubernetes:
