@@ -1,0 +1,21 @@
+#------------------------------------
+# CI for GitOps, test environment    
+#------------------------------------
+name: CI-GitOps
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+    
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: action/checkout@v1
+      - name: create test directory
+        run: |
+        cd mycluster-config/
+        mkdir teeeest
