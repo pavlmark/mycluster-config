@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: action/checkout@v1
+      - uses: action/checkout@v4
       - name: create test directory
         run: |
           cd mycluster-config/
