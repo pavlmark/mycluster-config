@@ -17,5 +17,5 @@ jobs:
       - uses: action/checkout@v1
       - name: create test directory
         run: |
-        cd mycluster-config/
-        mkdir teeeest
+          cd mycluster-config/
+          mkdir teeeest
