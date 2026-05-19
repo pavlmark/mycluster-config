@@ -35,7 +35,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./Dockerfile
+          file: /mycluster-config/kubernetes/fluxcd/repositories/example-app-1/src/Dockerfile
           push: true
           tags: ${{ steps.vars.outputs.IMAGE }}
 
