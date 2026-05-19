@@ -24,5 +24,11 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESSTOKEN }}
-      
+      - name: Push to Docker Hub
+        uses: actions/build-push-action@v2
+        with:
+          context: .
+          dockerfile: Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/mycluster-config:$(date-'%Y-Ym-%d%H-%M-%S')
       
