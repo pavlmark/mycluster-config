@@ -48,7 +48,7 @@ jobs:
 
       - name: Update Kubernetes manifest
         run: |
-          cd mycluster-config
+          cd mycluster-config/kubernetes/fluxcd/repositories/example-app-1/deploy
 
           sed -i "s|image: pavlmark/example-app-1:.*|image: ${{ steps.vars.outputs.IMAGE }}|g" "${{ env.DEPLOYMENT_FILE }}"
 
