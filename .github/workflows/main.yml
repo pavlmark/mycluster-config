@@ -39,21 +39,21 @@ jobs:
           push: true
           tags: ${{ steps.vars.outputs.IMAGE }}
 
-      - name: Checkout cluster-config repo
+      - name: Checkout mycluster-config repo
         uses: actions/checkout@v4
         with:
           repository: ${{ env.GITOPS_REPO }}
           token: ${{ secrets.GITOPS_TOKEN }}
-          path: cluster-config
+          path: mycluster-config
 
       - name: Update Kubernetes manifest
         run: |
-          cd cluster-config
+          cd mycluster-config
 
           sed -i "s|image: pavlmark/example-app-1:.*|image: ${{ steps.vars.outputs.IMAGE }}|g" "${{ env.DEPLOYMENT_FILE }}"
 
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          git config user.name "pavlmark"
+          git config user.email "pm@gmail.com"
 
           git add "${{ env.DEPLOYMENT_FILE }}"
           git commit -m "Update example-app image to ${{ steps.vars.outputs.IMAGE_TAG }}"
