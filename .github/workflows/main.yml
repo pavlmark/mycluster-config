@@ -48,13 +48,14 @@ jobs:
 
       - name: Update Kubernetes manifest
         run: |
-          sed -i "s|image: pavlmark/example-app-1:.*|image: ${{ steps.vars.outputs.IMAGE }}|g" "${{ env.DEPLOYMENT_FILE }}"
-
+          cd mycluster-config
+          
           git config user.name "pavlmark"
           git config user.email "pm@gmail.com"
+          git config url."https://${{ secrets.GITOPS_TOKEN }}@github.com/".insteadOf "https://github.com/"
           
-          git config --global url."https://${{ secrets.GITOPS_TOKEN }}@github.com/".insteadOf "https://github.com/"
-
+          sed -i "s|image: pavlmark/example-app-1:.*|image: ${{ steps.vars.outputs.IMAGE }}|g" "${{ env.DEPLOYMENT_FILE }}"
+          
           git add .
           git commit -m "Update example-app image to ${{ steps.vars.outputs.IMAGE_TAG }}"
           git push
