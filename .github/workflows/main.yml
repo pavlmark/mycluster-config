@@ -8,7 +8,7 @@ on:
 env:
   IMAGE_NAME: pavlmark/example-app-1
   GITOPS_REPO: pavlmark/mycluster-config
-  DEPLOYMENT_FILE: deployment.yaml
+  DEPLOYMENT_FILE: mycluster-config/kubernetes/fluxcd/repositories/example-app-1/deploy/deployment.yaml
 
 jobs:
   build-and-update-gitops:
@@ -48,8 +48,6 @@ jobs:
 
       - name: Update Kubernetes manifest
         run: |
-          cd ./kubernetes/fluxcd/repositories/example-app-1/deploy
-
           sed -i "s|image: pavlmark/example-app-1:.*|image: ${{ steps.vars.outputs.IMAGE }}|g" "${{ env.DEPLOYMENT_FILE }}"
 
           git config user.name "pavlmark"
