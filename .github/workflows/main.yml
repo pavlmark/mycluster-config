@@ -8,7 +8,7 @@ on:
 env:
   IMAGE_NAME: pavlmark/example-app-1
   GITOPS_REPO: pavlmark/mycluster-config
-  DEPLOYMENT_FILE: /kubernetes/fluxcd/repositories/example-app-1/deploy/deployment.yaml
+  DEPLOYMENT_FILE: deployment.yaml
 
 jobs:
   build-and-update-gitops:
