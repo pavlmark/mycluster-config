@@ -54,7 +54,7 @@ jobs:
           git config user.email "pm@gmail.com"
           git config url."https://${{ secrets.GITOPS_TOKEN }}@github.com/".insteadOf "https://github.com/"
           
-          sed -i "s|image: pavlmark/example-app-1:.*|image: ${{ steps.vars.outputs.IMAGE }}|g" "${{ env.DEPLOYMENT_FILE }}"
+          sed -i "s|image: pavlmark/example-app-1:.*|image: ${{ steps.vars.outputs.IMAGE }}|g" "kubernetes/fluxcd/repositories/example-app-1/deploy/deployment.yaml"
           
           git add .
           git commit -m "Update example-app image to ${{ steps.vars.outputs.IMAGE_TAG }}"
