@@ -53,6 +53,6 @@ jobs:
           git config user.name "pavlmark"
           git config user.email "pm@gmail.com"
 
-          git add kubernetes/fluxcd/repositories/example-app-1/deploy/deployment.yaml
+          git add .
           git commit -m "Update example-app image to ${{ steps.vars.outputs.IMAGE_TAG }}"
           git push
