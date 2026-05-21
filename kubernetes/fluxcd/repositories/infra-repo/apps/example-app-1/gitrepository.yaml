@@ -4,7 +4,7 @@ metadata:
   name: example-app-1
   namespace: default
 spec:
-  interval: 1m0s
+  interval: 5m0s
   ref:
     branch: main
   url: https://github.com/pavlmark/mycluster-config
