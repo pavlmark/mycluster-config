@@ -4,7 +4,7 @@ metadata:
   name: example-app-1
   namespace: default
 spec:
-  interval: 1m
+  interval: 5m
   path: "./kubernetes/fluxcd/repositories/example-app-1/deploy"
   prune: true
   sourceRef:

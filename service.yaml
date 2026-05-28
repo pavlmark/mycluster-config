@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    meta.helm.sh/release-name: kube-prometheus-stack
+    meta.helm.sh/release-namespace: monitoring
+  creationTimestamp: "2026-05-26T11:08:24Z"
+  labels:
+    app: kube-prometheus-stack-prometheus
+    app.kubernetes.io/instance: kube-prometheus-stack
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kube-prometheus-stack
+    app.kubernetes.io/version: 85.3.3
+    chart: kube-prometheus-stack-85.3.3
+    heritage: Helm
+    release: kube-prometheus-stack
+    self-monitor: "true"
+  name: kube-prometheus-stack-prometheus
+  namespace: monitoring
+  resourceVersion: "1591480"
+  uid: cb3fc035-30f3-42cd-972f-28d1f3407156
+spec:
+  clusterIP: 10.97.156.90
+  clusterIPs:
+  - 10.97.156.90
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: http-web
+    port: 9090
+    protocol: TCP
+    targetPort: 9090
+  - appProtocol: http
+    name: reloader-web
+    port: 8080
+    protocol: TCP
+    targetPort: reloader-web
+  selector:
+    app.kubernetes.io/name: prometheus
+    operator.prometheus.io/name: kube-prometheus-stack-prometheus
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
