@@ -12,9 +12,9 @@
 
 | Name | CPU | RAM | Storage |
 |---|---|---|---|
-| cp-01 | 2 | 2GB | 20GB |
-| wn-01 | 1 | 2GB | 20GB |
-| wn-02 | 1 | 2GB | 20GB |
+| cp-01 | 2 | 4GB | 20GB |
+| wn-01 | 2 | 4GB | 20GB |
+| wn-02 | 2 | 4GB | 20GB |
    
 In cluster runs simple app writed on Python(Flask).
 FluxCD monitors GitHub repo, FluxCD compare the repo state with the cluster state, if there are some updates or delete something, FLuxCD ensures that the deployed environment matches Git repo.
