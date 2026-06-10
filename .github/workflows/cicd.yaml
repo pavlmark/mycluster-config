@@ -22,4 +22,4 @@ jobs:
         with:
           context: .
           push: true
-          tag: ${{ secrets.DOCKER_HUB_USERNAME }}/python-app:${{github.sha}}
+          tag: ${{ secrets.DOCKER_HUB_USERNAME }}/example-app:${{github.sha}}
