@@ -2,7 +2,7 @@ FROM python:3.12-alpine
 
 WORKDIR /app
 
-COPY requirements.txt .
+COPY /kubernetes/fluxcd/repositories/example-app-1/src/requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
