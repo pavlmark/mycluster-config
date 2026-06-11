@@ -6,7 +6,7 @@ COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY app.py .
+COPY /kubernetes/fluxcd/repositories/example-app-1/src/app.py .
 
 ENV FLASK_APP=app.py
 
