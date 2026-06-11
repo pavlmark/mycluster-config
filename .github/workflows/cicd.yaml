@@ -20,6 +20,6 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6
         with:
-          context: ./mycluster-config/kubernetes/fluxcd/repositories/example-app-1/src
+          context: ./mycluster-config/kubernetes/fluxcd/repositories/example-app-1/src/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/example-app-1:${{ github.sha }}
