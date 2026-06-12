@@ -9,7 +9,7 @@ spec:
   selector:
     matchLabels:
       app: example-app-1
-  replicas: 5
+  replicas: 2
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: example-app-1
-        image: pavlmark/example-app-1:0.0.5
+        image: pavlmark/example-app-1:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
