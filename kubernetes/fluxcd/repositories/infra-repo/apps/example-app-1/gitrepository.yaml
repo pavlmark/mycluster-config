@@ -10,4 +10,6 @@ spec:
   url: https://github.com/pavlmark/mycluster-config
    ignore: |
     # exclude node service
-   /mycluster-config/kubernetes/fluxcd/repositories/example-app-1/deploy/node-service.yaml 
+     /*
+    # include one file
+     !/mycluster-config/kubernetes/fluxcd/repositories/example-app-1/deploy/node-service.yaml 
