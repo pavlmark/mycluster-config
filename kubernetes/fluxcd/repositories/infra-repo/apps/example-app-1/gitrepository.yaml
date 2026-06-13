@@ -8,3 +8,6 @@ spec:
   ref:
     branch: main
   url: https://github.com/pavlmark/mycluster-config
+   ignore: |
+    # exclude node service
+   /mycluster-config/kubernetes/fluxcd/repositories/example-app-1/deploy/node-service.yaml 
