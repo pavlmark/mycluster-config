@@ -1,0 +1,24 @@
+# This configuration defines an IP address pool for MetalLB to use
+# Replace the IP range with addresses available on your network
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: default-pool
+  namespace: metallb-system
+spec:
+  # Define the range of IP addresses MetalLB can assign
+  # These must be available IPs on your network that aren't in use
+  addresses:
+  - 192.168.13.240-192.168.13.250
+---
+# L2Advertisement makes MetalLB announce the IPs using Layer 2 mode (ARP/NDP)
+# This is the simplest mode and works on any network without special router configuration
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: default-advertisement
+  namespace: metallb-system
+spec:
+  # Reference the IP pool we created above
+  ipAddressPools:
+  - default-pool
