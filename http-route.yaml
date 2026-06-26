@@ -14,5 +14,5 @@ spec:
   rules:
   - backendRefs:
     - name: example-app-svc
-      port: 5000
+      port: 80
       weight: 1
