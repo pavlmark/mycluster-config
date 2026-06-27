@@ -16,3 +16,61 @@ spec:
     - name: example-app-svc
       port: 80
       weight: 1
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: example-app-2-httproute-grafana
+  namespace: monitoring
+
+spec:
+  parentRefs:
+  - name: gateway-api
+    namespace: default
+    sectionName: http
+    kind: Gateway
+
+  hostnames:
+  - "grafana.pavlmark-it.com"
+
+  rules:
+  - backendRefs:
+    - name: prometheus-grafana
+      port: 80
+      weight: 1
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: example-app-2-httproute-prometheus
+  namespace: monitoring
+spec:
+  parentRefs:
+    - name: gateway-api
+      namespace: default
+      sectionName: http
+  hostnames:
+    - "prometheus.pavlmark-it.com"
+  rules:
+  - backendRefs:
+    - name: prometheus-kube-prometheus-prometheus
+      port: 9090
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: example-app-2-httproute-argocd
+  namespace: argocd
+spec:
+  parentRefs:
+    - name: gateway-api
+      namespace: default
+      sectionName: http
+  hostnames:
+    - "argocd.pavlmark-it.com"
+  rules:
+  - backendRefs:
+    - name: argocd-server
+      port: 80
+      weight: 1
+
