@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: pavlmark-app
+  namespace: default
+spec:
+  secretName: secret-tls
+  dnsNames:
+    - pavlmark-it.com
+  issuerRef:
+    name: letsencrypt-issuer
+    kind: ClusterIssuer
