@@ -30,3 +30,28 @@ jobs:
           file: ./kubernetes/fluxcd/repositories/example-app-1/src/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/example-app-1:${{ steps.set_sha.outputs.short_sha }}
+  update-manifest:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Infrastructure Repo
+        uses: actions/checkout@v6
+        with:
+          repository: pavlmark/mycluster-config
+          token: ${{ secrets.DOCKER_HUB_ACCESSTOKEN }}
+          path: mycluster-config
+
+      - name: Update Image Tag in Kubernetes Deployment
+        run: |
+          cd mycluster-config
+          # Using the short SHA passed from the previous job 
+          yq -i '.spec.template.spec.containers[0].image = "pavlmark/example-app-1:${{ needs.build-and-push.outputs.short_sha }}"' \
+  kubernetes/fluxcd/repositories/example-app-1/deploy/deployment.yaml   
+      - name: Commit and Push to Infra Repo
+        run: |
+          cd infra-repo
+          user.email=pavels.markovskis@gmail.com
+          user.name=pavlmark
+          git add .
+          git commit -m "Deploying image tag ${{ needs.build-and-push.outputs.short_sha }}"
+          git push
