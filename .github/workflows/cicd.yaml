@@ -38,6 +38,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: pavlmark/mycluster-config
+          token: ${{ secrets.GITOPS_TOKEN }}
           path: mycluster-config
 
       - name: Update Image Tag in Kubernetes Deployment
