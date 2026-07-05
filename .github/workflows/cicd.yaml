@@ -45,7 +45,7 @@ jobs:
         run: |
           cd mycluster-config
           # Using the short SHA passed from the previous job 
-          yq -i '.spec.template.spec.containers[0].image = "pavlmark/example-app-1:${{ needs.build-and-push.outputs.short_sha }}"' \
+          yq -i '.spec.template.spec.containers[0].image = "pavlmark/example-app-1:${{ steps.set_sha.outputs.short_sha }"' \
   kubernetes/fluxcd/repositories/example-app-1/deploy/deployment.yaml   
       - name: Commit and Push to Infra Repo
         run: |
