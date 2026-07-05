@@ -46,11 +46,11 @@ jobs:
         with:
           # Using the short SHA passed from the previous job 
           cmd:  yq -i '.spec.template.spec.containers[0].image = "pavlmark/example-app-1:${{ needs.build-and-push.outputs.short_sha }}"' mycluster-config/kubernetes/fluxcd/repositories/example-app-1/deploy/deployment.yaml   
-      - name: Commit and Push to Mycluster-config Repo
+      - name: Commit and Push to mycluster-config Repo
         run: |
           cd mycluster-config
-          git config user.email="pavels.markovskis@gmail.com"
-          git config user.name="pavlmark"
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
           git add .
           git commit -m "Deploying image tag ${{ needs.build-and-push.outputs.short_sha }}"
           git push
