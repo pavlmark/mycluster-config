@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: example-app-1
-          image: pavlmark/example-app-1:b73d2ea
+          image: pavlmark/example-app-1:796e7b5
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5000
