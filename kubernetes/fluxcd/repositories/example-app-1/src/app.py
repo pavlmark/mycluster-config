@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Hello Pavl! Docker New Version!"
+    return "This page is pavlmark study project for practice DevOps/GitOps/SRE !"
 #from flask import Flask, jsonify
 #import datetime, socket
 #
