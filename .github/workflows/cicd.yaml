@@ -38,7 +38,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: pavlmark/mycluster-config
-          token: ${{ secrets.DOCKER_HUB_ACCESSTOKEN }}
+          token: ${{ secrets.GITOPS_TOKEN }}
           path: mycluster-config
 
       - name: Update Image Tag in Kubernetes Deployment
@@ -46,10 +46,10 @@ jobs:
           cd mycluster-config
           # Using the short SHA passed from the previous job 
           yq -i '.spec.template.spec.containers[0].image = "pavlmark/example-app-1:${{ steps.set_sha.outputs.short_sha }"' \
-  mycluster-config/kubernetes/fluxcd/repositories/example-app-1/deploy/deployment.yaml   
+  kubernetes/fluxcd/repositories/example-app-1/deploy/deployment.yaml   
       - name: Commit and Push to Infra Repo
         run: |
-          cd infra-repo
+          cd mycluster-config
           user.email=pavels.markovskis@gmail.com
           user.name=pavlmark
           git add .
