@@ -8,13 +8,11 @@ spec:
   source:
     repoURL: https://github.com/pavlmark/mycluster-config.git
     targetRevision: HEAD
-    path: kubernetes/fluxcd/repositories/example-app-1/src
+    path: kubernetes/fluxcd/repositories/example-app-1/deploy
   destination:
     server: https://kubernetes.default.svc
     namespace: default
   syncPolicy:
     automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-    - CreateNamespace=true
+      prune: false
+      selfHeal: false
