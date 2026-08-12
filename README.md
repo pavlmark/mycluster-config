@@ -19,12 +19,13 @@
 In cluster runs simple app writed on Python(Flask).
 FluxCD monitors GitHub repo, FluxCD compare the repo state with the cluster state, if there are some updates or delete something, FLuxCD ensures that the deployed environment matches Git repo.
 Also, there are monitoring apps like Prometheus, Grafana(dasboard for Prometheus).
-There is app Argo CD for Deploy in GUI.
+There is app Argo CD for Deploy in GUI. 
+Added NFS server which is running in the same subnet on Debian 12 PC-acer with HDD(low budget project :))). Pods can share files and directories with NFS. I am not sure that there are everthing secure(need check, but at least it works:))
 
 Tasks:
 1. I need to polish CI/CD pipeline in GitHub Action. For now, there doesn't work tag update Docker Image from repo on my app to DockerHub.
 2. Hide Prometheus behind VPN or create authentication, because by default it doesn't have authentication. Need to find info, and inverstigate this moment.
-3. Add PV in cluster for data.
+3. Build NFS (done)
 4. Migrate or copy date to cloud (AWS S3)
 5. Learn how to write documentation on GitHub:)
 
