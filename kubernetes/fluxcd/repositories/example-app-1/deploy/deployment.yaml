@@ -20,6 +20,9 @@ spec:
       labels:
         app: example-app-1
     spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
       containers:
         - name: example-app-1
           image: pavlmark/example-app-1:6bfa781
@@ -29,7 +32,12 @@ spec:
           volumeMounts:
             - name: config-volume
               mountPath: /configs/
+            - name: test-volume
+              mountPath: /nfs-k8s
       volumes:
         - name: config-volume
           configMap:
             name: example-app-1
+        - name: test-volume
+          persistentVolumeClaim: 
+            claimName: app-nfs-pvc
