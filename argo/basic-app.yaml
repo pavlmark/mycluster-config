@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/pavlmark/mycluster-config.git
     targetRevision: HEAD
-    path: kubernetes/fluxcd/repositories/example-app-1/deploy
+    path: kubernetes/fluxcd/repositories/example-app-1/src
   destination:
     server: https://kubernetes.default.svc
     namespace: default
