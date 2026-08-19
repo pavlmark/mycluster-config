@@ -2,6 +2,7 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: sc-app-1
+  namespace: default
 provisioner: 192.168.13.100/external-nfs
 parameters:
   server: 192.168.13.100
