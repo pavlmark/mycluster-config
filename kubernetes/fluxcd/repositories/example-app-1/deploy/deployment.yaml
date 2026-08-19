@@ -25,7 +25,7 @@ spec:
         runAsGroup: 1000
       containers:
         - name: example-app-1
-          image: pavlmark/example-app-1:ccf3fc5
+          image: pavlmark/example-app-1:d18019e
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5000
