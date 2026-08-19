@@ -6,5 +6,5 @@ metadata:
 provisioner: 192.168.13.100/external-nfs
 parameters:
   server: 192.168.13.100
-  path: /nfs-k8s
+  path: /data
   readOnly: "false"

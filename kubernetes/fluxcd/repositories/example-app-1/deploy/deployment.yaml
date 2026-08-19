@@ -33,7 +33,7 @@ spec:
             - name: config-volume
               mountPath: /configs/
             - name: test-volume
-              mountPath: /nfs-k8s
+              mountPath: /data
       volumes:
         - name: config-volume
           configMap:

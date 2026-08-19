@@ -15,5 +15,5 @@ spec:
     - hard
     - nfsvers=4.1
   nfs:
-    path: /nfs-k8s
+    path: /data
     server: 192.168.13.100
