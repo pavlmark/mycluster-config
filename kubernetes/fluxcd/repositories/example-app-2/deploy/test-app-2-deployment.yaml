@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: test-app-2-nginx
+  name: test-app-2-nginx
+  namespace: app-2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: test-app-2-nginx
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: test-app-2-nginx
+    spec:
+      containers:
+      - image: nginx:1.29
+        name: nginx
+        resources: {}
+status: {}
